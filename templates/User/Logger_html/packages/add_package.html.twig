@@ -1,0 +1,63 @@
+{% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+    افزودن پکیج جدید
+{% endblock %}
+
+{% block main %}
+    <div class="container col" id="kt_modal_new_address">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px" data-select2-id="select2-data-323-mqn7">
+            <!--begin::Modal content-->
+            <div class="modal-content" data-select2-id="select2-data-322-vn5l">
+                    {{ form_start(form, {'attr' : {'class': "form fv-plugins-bootstrap5 fv-plugins-framework", 'method':'post'}}) }}
+                    <div class="modal-body py-10 px-lg-17">
+                        <div class="scroll-y me-n7 pe-7" id="kt_modal_new_address_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_new_address_header" data-kt-scroll-wrappers="#kt_modal_new_address_scroll" data-kt-scroll-offset="300px" style="max-height: 350px;" data-select2-id="select2-data-kt_modal_new_address_scroll">
+                            <div class="notice d-flex bg-light-warning rounded bیاder-warning bیاder bیاder-dashed mb-9 p-6">
+                                <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																	<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"></circle>
+																	<rect fill="#000000" x="11" y="7" width="2" height="8" rx="1"></rect>
+																	<rect fill="#000000" x="11" y="16" width="2" height="2" rx="1"></rect>
+																</svg>
+                                    ثبت پکیج جدید
+															</span>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                    <label class="required fs-5 fw-bold mb-2">نام</label>
+                                    {{ form_row(form.name)}}
+                                    <div class="fv-plugins-message-container invalid-feedback">
+                                    </div>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                                <div class="col-md-6 fv-row fv-plugins-icon-container">
+                                    <label class="required fs-5 fw-bold mb-2">قیمت </label>
+                                    {{ form_row(form.price) }}
+                                    <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                            </div>
+                            <div class="d-flex flex-column mb-5 fv-row fv-plugins-icon-container">
+                                <label class="required fs-5 fw-bold mb-2">تعداد مجاز اپ های را وارد کتید</label>
+                                {{ form_row(form.number_app) }}
+                                <div class="fv-plugins-message-container invalid-feedback"></div>
+                            </div>
+                            <div class="d-flex flex-column mb-5 fv-row fv-plugins-icon-container">
+                                <label class="required fs-5 fw-bold mb-2">تعداد دفعات
+                                </label>
+                                {{ form_row(form.limit_report) }}
+                                <div class="fv-plugins-message-container invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer flex-center">
+                        <button type="ریست" id="kt_modal_new_address_cancel" class="btn btn-white me-3">صرف نظر</button>
+                        <button type="submit" id="kt_modal_new_address_submit" class="btn btn-primary">
+                            <span class="indicator-label">ثبت</span>
+                            <span class="indicator-progress">لطفا صبر کنید
+														<span class="spinner-bیاder spinner-bیاder-sm align-middle ms-2"></span></span>
+                        </button>
+                    </div>
+                {{ form_end(form)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

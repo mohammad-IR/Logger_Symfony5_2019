@@ -1,0 +1,99 @@
+{% for item in apps %}
+    <tr class="odd">
+        <td>
+            <a href="{{ path('edit_app', {'id' : item.id} ) }}"
+               class="text-gray-800 text-hover-primary mb-1">{{ item.name }}</a>
+        </td>
+
+        <td>
+            {% if item.status == true %}
+                <div class="badge badge-light-success">فعال</div>
+            {% else %}
+                <div class="badge badge-light-danger">غیر فعال</div>
+            {% endif %}
+        </td>
+
+        <!--begin::تاریخ=-->
+        <td data-order="2021-01-20T00:00:00+03:30">{{ item.date|date('Y,Md') }}</td>
+        <!--end::تاریخ=-->
+        <!--begin::Action=-->
+        <td class="text-end">
+            <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
+               data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+               data-kt-menu-flip="top-end">عملیات
+                <!--begin::Svg Icon | path: icons/duotone/Navigation/Angle-down.svg-->
+                <span class="svg-icon svg-icon-5 m-0">
+															<svg xmlns="http://www.w3.org/2000/svg"
+                                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                                 height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd">
+																	<polygon points="0 0 24 0 24 24 0 24"></polygon>
+																	<path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z"
+                                                                          fill="#000000" fill-rule="nonzero"
+                                                                          transform="translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)"></path>
+																</g>
+															</svg>
+														</span>
+                <!--end::Svg Icon--></a>
+            <!--begin::Menu-->
+            <div data-toggle="modal"
+                 class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
+                 data-kt-menu="true">
+                <div class="menu-item px-3">
+                    <button type="submit" class="menu-link px-3"
+                            style=" border: 0; background: white">
+                        <a name="token" href="" style="display: none">گزارش</a>
+                    </button>
+                </div>
+                <!--end::Menu مورد-->
+                <!--begin::Menu مورد-->
+                <div class="menu-item px-3">
+                    <form method="get" action="{{ path('remove_app', {id : item.id}) }} ">
+                        <button class="menu-link px-3" id="button_delete"
+                                style=" border: 0; background: white" type="submit">
+                            {% if item.status == true %}
+                                حذف
+                            {% else %}
+                                اضافه کردن
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
+                <div class="menu-item px-3">
+                    <a class="menu-link px-3"
+                       href="{{ path('change_token',{ id : item.id }) }}">تغییر توکن</a>
+                </div>
+                <div class="menu-item px-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="menu-link px-3"
+                            style=" border: 0; background: white" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        نمایش توکن
+                    </button>
+
+                </div>
+            </div>
+        </td>
+        <!--end::Action=-->
+    </tr>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"
+                        id="exampleModalLabel">{{ item.name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ item.token }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}

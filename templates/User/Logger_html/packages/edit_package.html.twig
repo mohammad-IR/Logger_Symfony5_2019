@@ -1,0 +1,77 @@
+{% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+    تغییر ویژگی های پکیج
+{% endblock %}
+
+{% block main %}
+    <div class="col-12 mr-5" id="kt_modal_new_target" style="display: block;">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content rounded">
+                <!--begin::Modal body-->
+                <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                    <!--begin:Fیاm-->
+                    {# <form id="kt_modal_new_target_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#" method="post"> #}
+                    {{ form_start(form, {'attr':{'class' : "form fv-plugins-bootstrap5 fv-plugins-framework", 'method' : 'post'}}) }}
+                    <!--begin::Heading-->
+                    <div class="mb-13 text-center">
+                        <!--begin::Title-->
+                        <h1 class="mb-3">تغییر یک پکیج</h1>
+                        <!--end::Title-->
+                        <!--begin::توضیحات-->
+                        <div class="text-gray-400 fw-bold fs-5">در صورتی که به جزئیات نیاز دارید
+                            <a href="#" class="fw-bolder link-primary">کلیک کنید.</a>.
+                        </div>
+                        <!--end::توضیحات-->
+                    </div>
+                    <!--end::Heading-->
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                        <!--begin::برچسب-->
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">نام پکبج</span>
+                        </label>
+                        {{ form_row(form.name,{'attr':{'value':package.name}}) }}
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+                    <div class="row g-9 mb-8">
+                        <!--begin::Col-->
+                        <div class="col-md-6 fv-row">
+                             <label class="required fs-6 fw-bold mb-2">قیمت</label>
+                            {{ form_row(form.price, {'attr' : {'value' : package.price}}) }}
+                        </div>
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-bold mb-2">تعداد مجاز گذارش ها</label>
+                            <div class="position-relative d-flex align-items-center">
+                                {{ form_row(form.limit_report, {'attr' : {'value' : package.limitReport}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mb-8">
+                        <label class="fs-6 fw-bold mb-2">ویژگی های پکبج</label>
+                        {{ form_row(form.number_app, {'attr' : {'value' : package.numberApp}}) }}
+
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('list_packages') }}"  class="btn btn-white me-3">
+                            انصراف
+                        </a>
+                        <button type="submit"  class="btn btn-primary">
+                            <span class="indicator-label">ثبت</span>
+                            <span class="indicator-progress">لطفا صبر کنید
+															<span class="spinner-bیاder spinner-bیاder-sm align-middle ms-2"></span></span>
+                        </button>
+                    </div>
+                    <!--end::عملیات-->
+                    <div></div>
+                    {{ form_end(form) }}
+                    <!--end:Fیاm-->
+                </div>
+                <!--end::Modal body-->
+            </div>
+            <!--end::Modal content-->
+        </div>
+        <!--end::Modal dialog-->
+    </div>
+{% endblock %}

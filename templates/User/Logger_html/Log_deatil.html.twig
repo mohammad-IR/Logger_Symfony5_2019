@@ -1,0 +1,120 @@
+{% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+جزئیات لاگ ها
+{% endblock %}
+
+{% set limit = 0 %}
+{% set i = 1 %}
+
+{% block main %}
+    <div class="container">
+      <div class="row justify-content-center    ">
+          <div class="col">
+              <table class="table">
+                  <thead class="border-bottom border-dark">
+                  <tr >
+                      <th scope="col">#</th>
+                      <th scope="col">نوع</th>
+                      <th scope="col">توضیحات</th>
+                      <th scope="col">نام اپ</th>
+                  </tr>
+                  </thead>
+                  <tbody id="tboby_logs">
+                  {% for logs_type in logs_types|slice(0,10) %}
+                      <tr class="border-bottom">
+                          <th scope="row">{{ i }}</th>
+                          <td>
+                              <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample{{ logs_type.id }}"
+                                 role="button">
+                                  {{ logs_type.type }}
+                              </a>
+                              <div class="offcanvas offcanvas-start" tabindex="-1"
+                                   id="offcanvasExample{{ logs_type.id }}">
+                                  <div class="offcanvas-header bg-light-success">
+                                      <h5 class="offcanvas-title"
+                                          id="offcanvasExampleLabel">{{ logs_type.user.eraseCredentials }}</h5>
+                                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                              aria-label="Close"></button>
+                                  </div>
+                                  <hr>
+                                  <div class="offcanvas-body bg-light">
+                                      <div>
+                                          <p class="rounded-2 btn-outline-primary"><span
+                                                      class="text-dark btn-outline-primary fw-bold">نوع لاگ: </span>{{ logs_type.type }}
+                                              <span class="text-muted"></span></p>
+                                          <p class="rounded-2 btn-outline-primary"><span
+                                                      class="text-dark btn-outline-primary fw-bold">نام اپلیکیشن : </span>{{ logs_type.app.name }}
+                                              <span class="text-muted"></span></p>
+                                          <p class="rounded-2 btn-outline-primary"><span
+                                                      class="text-dark btn-outline-primary fw-bold">تاریخ ثبت لاگ : </span>{{ logs_type.date|date("Y/m/d,  h:m:s") }}
+                                              <span class="text-muted"></span></p>
+                                          <p class="rounded-2 btn-outline-primary"><span
+                                                      class="text-dark btn-outline-primary fw-bold">توضیحات لاگ : </span>{{ logs_type.description }}
+                                              <span class="text-muted"></span></p>
+                                          <p class="rounded-2 btn-outline-primary"><span class="text-dark fw-bold">پارامتر های لاگ :</span>{
+                                              {% for key,parameter in logs_type.parameters %}
+                                                  <span class="text-muted">{{ key }}:{{ parameter }}, </span>
+                                              {% endfor %}
+                                              }</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>{{ logs_type.description }}</td>
+                          <td>{{ logs_type.app.name }}</td>
+                      </tr>
+                      {%  set i = i + 1 %}
+                      {% set limit = logs_type.type %}
+                  {% endfor %}
+                  </tbody>
+              </table>
+              <div class="g-9">
+                  <button type="button" id="more_log" class="btn btn-outline-primary">
+                      بیشتر
+                  </button>
+              </div>
+          </div>
+      </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+<script language="JavaScript">
+        $(document).ready(function () {
+            $('#more_log').click(function () {
+                $.post('{{ path('Log_deatil_type',{type: logs_types[0].type }) }}', {id:{{ logs_types[ (logs_types|length) - 1 ].id }} }, function (data) {
+                    if (data.length <= 1) {
+                        document.getElementById('more_log').style.display = 'none';
+                        console.log(data)
+                    }
+                    else {
+                        for (i = 0; i < data.length; i++) {
+                                var e = $('<tr>' +
+                                '<th scope="row">' +
+                                (data[0]['number'] * 10 + i + 1) +
+                                '</th><td>'
+                                + '<a class="" data-bs-toggle="offcanvas" href="#offcanvasExample' + data[i]['id'] + '" role="button">' + data[i]['type'] + '</a>' +
+                                '<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample' + data[i]['id'] + '">' +
+                                '<div class="offcanvas-header bg-light-success"><h5 class="offcanvas-title"id="offcanvasExampleLabel"> ' +
+                                '</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"' +
+                                'aria-label="Close"></button></div><hr>' +
+                                +'<div class="offcanvas-body bg-light"><div>' +
+                                '<p class="rounded-2 btn-outline-primary"><span class="text-dark btn-outline-primary fw-bold">نوع لاگ: </span>' + data[i]['type'] +
+                                '<span class="text-muted"></span></p>' +
+                                '<p class="rounded-2 btn-outline-primary"><span class="text-dark btn-outline-primary fw-bold">نام اپلیکیشن : </span>' + data[i]['name_app'] +
+                                '<span class="text-muted"></span></p><p class="rounded-2 btn-outline-primary"><span class="text-dark btn-outline-primary fw-bold">تاریخ ثبت لاگ : </span>' + data[i]['date'] +
+                                '<span class="text-muted"></span></p>' +
+                                '<p class="rounded-2 btn-outline-primary"><span class="text-dark btn-outline-primary fw-bold">توضیحات لاگ : </span>' + data[i]['description'] +
+                                '<span class="text-muted"></span></p>' +
+                                '<p class="rounded-2 btn-outline-primary"><span class="text-dark fw-bold">پارامتر های لاگ :</span>{' + '<span class="text-muted">' + data[i]['parameters'] + '</span>' + '}'
+                                + '</p></div></div></div>' +
+                                '</td><td>' + data[i]['description'] + '</td><td>' + data[i]['name_app'] + '</td></tr>');
+                            $('#tboby_logs').append(e);
+                        }
+                        console.log(data);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

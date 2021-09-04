@@ -1,0 +1,100 @@
+{% extends "/User/doshbord_user.html.twig" %}
+{% block title %}
+   تغییر اپلیکیشن
+{% endblock %}
+
+{% block main %}
+    <!-- Model -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-7" id="kt_modal_create_api_key">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog  modal-dialog-centered mw-1000px">
+                    <!--begin::Modal content-->
+                    <div class="modal-content">
+                        <!--begin::Modal header-->
+                        <div class="modal-header" id="kt_modal_create_api_key_header">
+                            <!--begin::Modal title-->
+                            <h2>ایجاد کردن کلید دسترسی</h2>
+
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Modal header-->
+                        <!--begin::Fیاm-->
+                        {# <form id="kt_modal_create_api_key_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="{{ path('add_app') }}"> #}
+                        {{ form_start(form) }}
+                        <!--begin::Modal body-->
+                        <div class="modal-body py-10 px-lg-17">
+                            <!--begin::Scroll-->
+                            <div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll"
+                                 data-kt-scroll="true"
+                                 data-kt-scroll-activate="{default: false, lg: true}"
+                                 data-kt-scroll-max-height="auto"
+                                 data-kt-scroll-dependencies="#kt_modal_create_api_key_header"
+                                 data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll"
+                                 data-kt-scroll-offset="300px"
+                                 style="">
+                                <!--begin::Input group-->
+                                <div class="mb-5 fv-row fv-plugins-icon-container">
+                                    <!--begin::برچسب-->
+                                    <label class="required fs-5 fw-bold mb-2">نام سایت</label>
+                                    <!--end::برچسب-->
+                                    <!--begin::Input-->
+                                    {# <input type="text" class="form-control form-control-solid" placeholder="" value="{{ name_app }}" name="name"> #}
+                                    {{ form_row(form.name,
+                                        {
+                                            'attr':{"class":"form-control form-control-solid", "value": name_app }
+                                        }) }}
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll"
+                                 data-kt-scroll="true"
+                                 data-kt-scroll-activate="{default: false, lg: true}"
+                                 data-kt-scroll-max-height="auto"
+                                 data-kt-scroll-dependencies="#kt_modal_create_api_key_header"
+                                 data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll"
+                                 data-kt-scroll-offset="300px"
+                                 style="">
+                                <!--begin::Input group-->
+                                <div class="mb-5 fv-row fv-plugins-icon-container">
+                                    <!--begin::برچسب-->
+                                    <label class="required fs-5 fw-bold mb-2">url سایت</label>
+                                    <!--end::برچسب-->
+                                    <!--begin::Input-->
+                                    {# <input type="text" class="form-control form-control-solid" placeholder="" value="{{ url_app }}" name="name"> #}
+                                    {{ form_row(form.url,
+                                        {
+                                            'attr':{"class":"form-control form-control-solid", "value": url_app }
+                                        }) }}
+                                    <!--end::Input-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="collapse" id="package_history"></div>
+                            <!--end::Scroll-->
+                        </div>
+                        <!--begin::Modal footer-->
+                        <div class="modal-footer flex-center">
+                            <!--begin::Button-->
+                            <button type="ریست" id="kt_modal_create_api_key_cancel" class="btn btn-white me-3">صرف
+                                نظر
+                            </button>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_modal_create_api_key_submit" class="btn btn-primary">
+                                <span class="indicator-label">ثبت</span>
+                                <span class="indicator-progress">لطفا صبر کنید
+														<span class="spinner-bیاder spinner-bیاder-sm align-middle ms-2"></span></span>
+                            </button>
+                            <!--end::Button-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
