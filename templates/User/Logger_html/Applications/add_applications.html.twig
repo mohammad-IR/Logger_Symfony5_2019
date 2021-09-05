@@ -129,3 +129,9 @@
         <!--end::Container-->
     </div>
     {% endblock %}
+{% block javascript %}
+    <script>
+        document.getElementById('add_application').className = 'menu-link active';
+        document.getElementById('Applications_scrole').className = "menu-item menu-accordion hover show";
+    </script>
+{% endblock %}

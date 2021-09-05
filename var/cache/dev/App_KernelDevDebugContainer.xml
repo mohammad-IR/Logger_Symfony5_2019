@@ -434,7 +434,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Security\LoginAuthenticator" class="App\Security\LoginAuthenticator" autowire="true" autoconfigure="true">
+    <service id="App\Security\LoginFormAuthenticator" class="App\Security\LoginFormAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
     </service>
     <service id="App\Services\ApplicationServices" class="App\Services\ApplicationServices" autowire="true" autoconfigure="true">
@@ -5424,7 +5424,7 @@
       <argument type="service" id=".service_locator.HtipwlH"/>
       <argument type="collection">
         <argument key="main" type="collection">
-          <argument type="service" id="App\Security\LoginAuthenticator"/>
+          <argument type="service" id="App\Security\LoginFormAuthenticator"/>
           <argument type="service" id="security.authenticator.remember_me.main"/>
         </argument>
       </argument>
@@ -5473,7 +5473,7 @@
       <argument>false</argument>
       <argument>security.user.provider.concrete.app_user_provider</argument>
       <argument>main</argument>
-      <argument>App\Security\LoginAuthenticator</argument>
+      <argument>App\Security\LoginFormAuthenticator</argument>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
@@ -5482,20 +5482,8 @@
       </argument>
       <argument>null</argument>
     </service>
-    <service id="security.listener.main.user_provider" class="Symfony\Component\Security\Http\EventListener\UserProviderListener">
-      <tag name="kernel.event_listener" dispatcher="security.event_dispatcher.main" event="Symfony\Component\Security\Http\Event\CheckPassportEvent" priority="2048" method="checkPassport"/>
-      <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
-    </service>
     <service id="security.event_dispatcher.main" class="Symfony\Component\EventDispatcher\EventDispatcher">
       <tag name="security.event_dispatcher.main">event_dispatcher.dispatcher</tag>
-      <call method="addListener">
-        <argument>Symfony\Component\Security\Http\Event\CheckPassportEvent</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="security.listener.main.user_provider"/>
-          <argument>checkPassport</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
       <call method="addListener">
         <argument>Symfony\Component\Security\Http\Event\LoginSuccessEvent</argument>
         <argument type="collection">
@@ -5760,7 +5748,7 @@
     <service id="security.authenticator.manager.main" class="Symfony\Component\Security\Http\Authentication\AuthenticatorManager">
       <tag name="monolog.logger" channel="security"/>
       <argument type="collection">
-        <argument type="service" id="App\Security\LoginAuthenticator"/>
+        <argument type="service" id="App\Security\LoginFormAuthenticator"/>
         <argument type="service" id="security.authenticator.remember_me.main"/>
       </argument>
       <argument type="service" id="security.token_storage"/>
@@ -5783,7 +5771,7 @@
       <argument type="service" id="security.authentication.trust_resolver"/>
       <argument type="service" id="security.http_utils"/>
       <argument>main</argument>
-      <argument type="service" id="App\Security\LoginAuthenticator"/>
+      <argument type="service" id="App\Security\LoginFormAuthenticator"/>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -6228,16 +6216,16 @@
         <argument key="services" type="service_closure" id="App\Services\Logger\LoggerServices"/>
       </argument>
     </service>
-    <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
-      </argument>
-    </service>
     <service id=".service_locator.uzf8IEO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="hasher" type="service_closure" id="security.user_password_hasher"/>
+      </argument>
+    </service>
+    <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
     <service id=".service_locator.72IH7xB" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7756,8 +7744,8 @@
     <service id=".service_locator.yciRRzv" alias=".service_locator.CpaXrFh"/>
     <service id=".service_locator.npJQI5X" alias=".service_locator.RlLJ4.q"/>
     <service id=".service_locator.NyPjtn4" alias=".service_locator.Yu84yu0"/>
-    <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.e1GDt4K" alias=".service_locator.uzf8IEO"/>
+    <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.AuMX1Yi" alias=".service_locator.72IH7xB"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>

@@ -101,4 +101,8 @@
             }
     </script>
     {{ parent() }}
+ <script>
+    document.getElementById('bought_package').className = 'menu-link active';
+    document.getElementById('package_scrole').className = "menu-item menu-accordion hover show";
+</script>
 {% endblock %}

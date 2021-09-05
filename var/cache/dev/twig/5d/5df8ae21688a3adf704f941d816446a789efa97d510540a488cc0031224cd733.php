@@ -27,6 +27,7 @@ class __TwigTemplate_e6a04ecdd9ef3ec6010f26f269fe9ac959ef55230cb1245309b242c6ce8
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'main' => [$this, 'block_main'],
+            'javascript' => [$this, 'block_javascript'],
         ];
     }
 
@@ -251,6 +252,30 @@ class __TwigTemplate_e6a04ecdd9ef3ec6010f26f269fe9ac959ef55230cb1245309b242c6ce8
 
     }
 
+    // line 132
+    public function block_javascript($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
+
+        // line 133
+        echo "    <script>
+        document.getElementById('add_application').className = 'menu-link active';
+        document.getElementById('Applications_scrole').className = \"menu-item menu-accordion hover show\";
+    </script>
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "User/Logger_html/Applications/add_applications.html.twig";
@@ -263,7 +288,7 @@ class __TwigTemplate_e6a04ecdd9ef3ec6010f26f269fe9ac959ef55230cb1245309b242c6ce8
 
     public function getDebugInfo()
     {
-        return array (  231 => 118,  217 => 107,  212 => 106,  197 => 93,  192 => 92,  175 => 76,  172 => 75,  168 => 72,  159 => 69,  156 => 68,  152 => 67,  90 => 7,  80 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  266 => 133,  256 => 132,  232 => 118,  218 => 107,  213 => 106,  198 => 93,  193 => 92,  176 => 76,  173 => 75,  169 => 72,  160 => 69,  157 => 68,  153 => 67,  91 => 7,  81 => 6,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -399,6 +424,11 @@ class __TwigTemplate_e6a04ecdd9ef3ec6010f26f269fe9ac959ef55230cb1245309b242c6ce8
         <!--end::Container-->
     </div>
     {% endblock %}
-", "User/Logger_html/Applications/add_applications.html.twig", "C:\\Users\\ali\\Desktop\\project\\templates\\User\\Logger_html\\Applications\\add_applications.html.twig");
+{% block javascript %}
+    <script>
+        document.getElementById('add_application').className = 'menu-link active';
+        document.getElementById('Applications_scrole').className = \"menu-item menu-accordion hover show\";
+    </script>
+{% endblock %}", "User/Logger_html/Applications/add_applications.html.twig", "C:\\Users\\ali\\Desktop\\project\\templates\\User\\Logger_html\\Applications\\add_applications.html.twig");
     }
 }

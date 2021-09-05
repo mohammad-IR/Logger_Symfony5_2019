@@ -93,7 +93,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "built"));
 
         // line 9
-        echo "    <div data-kt-menu-trigger=\"click\" class=\"menu-item menu-accordion\">
+        echo "    <div data-kt-menu-trigger=\"click\" id=\"package_scrole\" class=\"menu-item menu-accordion\">
 \t\t\t\t\t\t\t\t\t<span class=\"menu-link\">
 \t\t\t\t\t\t\t\t\t\t<span class=\"menu-icon\">
 \t\t\t\t\t\t\t\t\t\t\t<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -117,7 +117,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
 \t\t\t\t\t\t\t\t\t</span>
         <div class=\"menu-sub menu-sub-accordion menu-active-bg\">
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"";
+                <a class=\"menu-link\" id=\"list_package\" href=\"";
         // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("list_packages");
         echo "\">
@@ -132,7 +132,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 41
             echo "                <div class=\"menu-item\">
-                    <a class=\"menu-link\" href=\"";
+                    <a class=\"menu-link\" id=\"add_package\" href=\"";
             // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_packages");
             echo "\">
@@ -146,7 +146,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
         }
         // line 50
         echo "            <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"";
+                <a class=\"menu-link\" id=\"buy_package\" href=\"";
         // line 51
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("buy_package");
         echo "\">
@@ -157,7 +157,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                 </a>
             </div>
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"";
+                <a class=\"menu-link\" id=\"bought_package\" href=\"";
         // line 59
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("bought_package");
         echo "\">
@@ -171,7 +171,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
     </div>
 
 
-    <div data-kt-menu-trigger=\"click\" class=\"menu-item menu-accordion\">
+    <div data-kt-menu-trigger=\"click\" id=\"Applications_scrole\" class=\"menu-item menu-accordion\">
 \t\t\t\t\t\t\t\t\t<span class=\"menu-link\">
 \t\t\t\t\t\t\t\t\t\t<span class=\"menu-icon\">
 \t\t\t\t\t\t\t\t\t\t\t<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -195,7 +195,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
 \t\t\t\t\t\t\t\t\t</span>
         <div class=\"menu-sub menu-sub-accordion menu-active-bg\">
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"";
+                <a class=\"menu-link\" id=\"list_Applications\" href=\"";
         // line 94
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("list_app");
         echo "\">
@@ -206,7 +206,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                 </a>
             </div>
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"";
+                <a class=\"menu-link\"  id=\"add_application\"  href=\"";
         // line 102
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_app");
         echo "\">
@@ -550,7 +550,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                     {% set i = 1 %}
                     {% set limit = 0 %}
 {% block built %}
-    <div data-kt-menu-trigger=\"click\" class=\"menu-item menu-accordion\">
+    <div data-kt-menu-trigger=\"click\" id=\"package_scrole\" class=\"menu-item menu-accordion\">
 \t\t\t\t\t\t\t\t\t<span class=\"menu-link\">
 \t\t\t\t\t\t\t\t\t\t<span class=\"menu-icon\">
 \t\t\t\t\t\t\t\t\t\t\t<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -574,7 +574,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
 \t\t\t\t\t\t\t\t\t</span>
         <div class=\"menu-sub menu-sub-accordion menu-active-bg\">
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"{{ path('list_packages') }}\">
+                <a class=\"menu-link\" id=\"list_package\" href=\"{{ path('list_packages') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>
@@ -583,7 +583,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
             </div>
             {% if is_granted(\"ROLE_ADMIN\") %}
                 <div class=\"menu-item\">
-                    <a class=\"menu-link\" href=\"{{ path('add_packages') }}\">
+                    <a class=\"menu-link\" id=\"add_package\" href=\"{{ path('add_packages') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>
@@ -592,7 +592,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                 </div>
             {% endif %}
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"{{ path('buy_package') }}\">
+                <a class=\"menu-link\" id=\"buy_package\" href=\"{{ path('buy_package') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>
@@ -600,7 +600,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                 </a>
             </div>
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"{{ path('bought_package') }}\">
+                <a class=\"menu-link\" id=\"bought_package\" href=\"{{ path('bought_package') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>
@@ -611,7 +611,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
     </div>
 
 
-    <div data-kt-menu-trigger=\"click\" class=\"menu-item menu-accordion\">
+    <div data-kt-menu-trigger=\"click\" id=\"Applications_scrole\" class=\"menu-item menu-accordion\">
 \t\t\t\t\t\t\t\t\t<span class=\"menu-link\">
 \t\t\t\t\t\t\t\t\t\t<span class=\"menu-icon\">
 \t\t\t\t\t\t\t\t\t\t\t<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -635,7 +635,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
 \t\t\t\t\t\t\t\t\t</span>
         <div class=\"menu-sub menu-sub-accordion menu-active-bg\">
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"{{ path('list_app') }}\">
+                <a class=\"menu-link\" id=\"list_Applications\" href=\"{{ path('list_app') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>
@@ -643,7 +643,7 @@ class __TwigTemplate_a0147415fb27a8f9c2ede7b5c9dbb752631d75cc8f8ce8a8301cc94ad64
                 </a>
             </div>
             <div class=\"menu-item\">
-                <a class=\"menu-link\" href=\"{{ path('add_app') }}\">
+                <a class=\"menu-link\"  id=\"add_application\"  href=\"{{ path('add_app') }}\">
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"menu-bullet\">
                                                     <span class=\"bullet bullet-dot\"></span>
 \t\t\t\t\t\t\t\t\t\t\t\t</span>

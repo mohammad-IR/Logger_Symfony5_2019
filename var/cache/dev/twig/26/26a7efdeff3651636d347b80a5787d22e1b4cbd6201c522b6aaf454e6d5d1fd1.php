@@ -367,11 +367,16 @@ class __TwigTemplate_d87c6774a75f957ffeac1ad18aeae1d1aa9606c16066d81ee695e4ef11c
                     \$('#body_list').append(data);
         });
     }
-    </script>
-    ";
+</script>
+";
         // line 238
         $this->displayParentBlock("javascript", $context, $blocks);
         echo "
+
+<script>
+    document.getElementById('list_package').className = 'menu-link active';
+    document.getElementById('package_scrole').className = \"menu-item menu-accordion hover show\";
+</script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -634,8 +639,13 @@ class __TwigTemplate_d87c6774a75f957ffeac1ad18aeae1d1aa9606c16066d81ee695e4ef11c
                     \$('#body_list').append(data);
         });
     }
-    </script>
-    {{ parent() }}
+</script>
+{{ parent() }}
+
+<script>
+    document.getElementById('list_package').className = 'menu-link active';
+    document.getElementById('package_scrole').className = \"menu-item menu-accordion hover show\";
+</script>
 {% endblock %}", "User/Logger_html/packages/package_list.html.twig", "C:\\Users\\ali\\Desktop\\project\\templates\\User\\Logger_html\\packages\\package_list.html.twig");
     }
 }

@@ -90,29 +90,8 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
         echo "        <div class=\" row-cols-10\">
             <div class=\"login-page position-relative\" style=\"z-index: 1\">
                 <form class=\"login-form\" method=\"post\">
-                    ";
-        // line 50
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 50, $this->source); })())) {
-            // line 51
-            echo "                        <div class=\"alert alert-danger\">ورودی اشتباه وارد شده</div>
-                    ";
-        }
-        // line 53
-        echo "
-                    ";
-        // line 54
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "user", [], "any", false, false, false, 54)) {
-            // line 55
-            echo "                    <div class=\"mb-3\">
-                        شما در سیستم هستید در صورت میل به خارج شدن <a href=\"";
-            // line 56
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-            echo "\">خارج شوید</a>
-                    </div>
-                    ";
-        } else {
-            // line 59
-            echo "                    <div class=\"text-center\">
+
+                    <div class=\"text-center\">
                         <h4 class=\"mb-4\">ورود</h4>
                     </div>
                     <div class=\"row\">
@@ -121,9 +100,9 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
                                 <label>نام کاربری <span class=\"text-danger\">*</span></label>
                                 <i class=\"mdi mdi-account ml-3 icons\"></i>
                                 <input type=\"text\" value=\"";
-            // line 67
-            echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 67, $this->source); })()), "html", null, true);
-            echo "\" class=\"form-control pl-5\"
+        // line 59
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 59, $this->source); })()), "html", null, true);
+        echo "\" class=\"form-control pl-5\"
                                        placeholder=\"نام کاربری\" name=\"username\" autocomplete=\"username\" required
                                        autofocus>
                             </div>
@@ -137,20 +116,44 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
                                        autocomplete=\"current-password\" required>
                             </div>
                         </div><!--end col-->
-
-                        <div class=\"col-lg-12\">
+                        ";
+        // line 73
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 73, $this->source); })())) {
+            // line 74
+            echo "                            <div class=\"alert text-danger ms-1\">ورودی اشتباه وارد شده</div>
+                        ";
+        }
+        // line 76
+        echo "
+                        ";
+        // line 77
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 77, $this->source); })()), "user", [], "any", false, false, false, 77)) {
+            // line 78
+            echo "                        <div class=\"mb-3\">
+                            شما در سیستم هستید در صورت میل به خارج شدن <a href=\"";
+            // line 79
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\">خارج شوید</a>
+                        </div>
+                        ";
+        } else {
+            // line 82
+            echo "                        <div class=\"col-lg-12\">
                             <p class=\"float-right forgot-pass\"><a href=\"";
             // line 83
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("validation_eamil");
             echo "\"
                                                                   class=\"text-dark font-weight-bold\">فراموشی رمز
                                     عبور؟</a></p>
-                            <div class=\"checkbox mb-3\">
-                                <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked/>
-                                <label for=\"remember_me\">مرا به خاطر بسپار</label>
-                            </div>
+                            <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked/>
+                            <label for=\"remember_me\">مرا به خاطر بسپار</label>
                         </div>
 
+                        <input type=\"hidden\" name=\"_csrf_token\"
+                               value=\"";
+            // line 91
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
+            echo "\">
                         <div class=\"col-lg-12 mb-0\">
                             <button class=\"btn btn-primary w-100\">ورود</button>
                         </div><!--end col-->
@@ -175,21 +178,16 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
             echo "\" class=\"text-dark font-weight-bold\">ثبت نام</a></p>
                         </div><!--end col-->
                     </div><!--end row-->
-                    <input type=\"hidden\" name=\"_csrf_token\"
-                           value=\"";
-            // line 114
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
-            echo "\">
                 </form>
                 ";
         }
-        // line 117
+        // line 115
         echo "            </div>
         </div>
         ";
-        // line 120
+        // line 118
         echo "        ";
-        // line 121
+        // line 119
         echo "    </div>
 
     <div class=\"col-lg-8 offset-lg-4 padding-less img order-1\" style=\"background-image:url('/images/user/01.jpg')\"
@@ -228,7 +226,7 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
 
     public function getDebugInfo()
     {
-        return array (  193 => 121,  191 => 120,  187 => 117,  181 => 114,  174 => 110,  144 => 83,  125 => 67,  115 => 59,  109 => 56,  106 => 55,  104 => 54,  101 => 53,  97 => 51,  95 => 50,  90 => 47,  88 => 46,  84 => 43,  43 => 1,);
+        return array (  191 => 119,  189 => 118,  185 => 115,  177 => 110,  155 => 91,  144 => 83,  141 => 82,  135 => 79,  132 => 78,  130 => 77,  127 => 76,  123 => 74,  121 => 73,  104 => 59,  90 => 47,  88 => 46,  84 => 43,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -282,15 +280,7 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
         <div class=\" row-cols-10\">
             <div class=\"login-page position-relative\" style=\"z-index: 1\">
                 <form class=\"login-form\" method=\"post\">
-                    {% if error %}
-                        <div class=\"alert alert-danger\">ورودی اشتباه وارد شده</div>
-                    {% endif %}
 
-                    {% if app.user %}
-                    <div class=\"mb-3\">
-                        شما در سیستم هستید در صورت میل به خارج شدن <a href=\"{{ path('logout') }}\">خارج شوید</a>
-                    </div>
-                    {% else %}
                     <div class=\"text-center\">
                         <h4 class=\"mb-4\">ورود</h4>
                     </div>
@@ -313,17 +303,25 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
                                        autocomplete=\"current-password\" required>
                             </div>
                         </div><!--end col-->
+                        {% if error %}
+                            <div class=\"alert text-danger ms-1\">ورودی اشتباه وارد شده</div>
+                        {% endif %}
 
+                        {% if app.user %}
+                        <div class=\"mb-3\">
+                            شما در سیستم هستید در صورت میل به خارج شدن <a href=\"{{ path('logout') }}\">خارج شوید</a>
+                        </div>
+                        {% else %}
                         <div class=\"col-lg-12\">
                             <p class=\"float-right forgot-pass\"><a href=\"{{ path('validation_eamil') }}\"
                                                                   class=\"text-dark font-weight-bold\">فراموشی رمز
                                     عبور؟</a></p>
-                            <div class=\"checkbox mb-3\">
-                                <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked/>
-                                <label for=\"remember_me\">مرا به خاطر بسپار</label>
-                            </div>
+                            <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked/>
+                            <label for=\"remember_me\">مرا به خاطر بسپار</label>
                         </div>
 
+                        <input type=\"hidden\" name=\"_csrf_token\"
+                               value=\"{{ csrf_token('authenticate') }}\">
                         <div class=\"col-lg-12 mb-0\">
                             <button class=\"btn btn-primary w-100\">ورود</button>
                         </div><!--end col-->
@@ -345,8 +343,6 @@ class __TwigTemplate_f92479375165dd6a0e754106fa5e88177042520309cb25386f87357b9cf
                                         href=\"{{ path('register') }}\" class=\"text-dark font-weight-bold\">ثبت نام</a></p>
                         </div><!--end col-->
                     </div><!--end row-->
-                    <input type=\"hidden\" name=\"_csrf_token\"
-                           value=\"{{ csrf_token('authenticate') }}\">
                 </form>
                 {% endif %}
             </div>

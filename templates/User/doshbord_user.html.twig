@@ -6,7 +6,7 @@
                     {% set i = 1 %}
                     {% set limit = 0 %}
 {% block built %}
-    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <div data-kt-menu-trigger="click" id="package_scrole" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -30,7 +30,7 @@
 									</span>
         <div class="menu-sub menu-sub-accordion menu-active-bg">
             <div class="menu-item">
-                <a class="menu-link" href="{{ path('list_packages') }}">
+                <a class="menu-link" id="list_package" href="{{ path('list_packages') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -39,7 +39,7 @@
             </div>
             {% if is_granted("ROLE_ADMIN") %}
                 <div class="menu-item">
-                    <a class="menu-link" href="{{ path('add_packages') }}">
+                    <a class="menu-link" id="add_package" href="{{ path('add_packages') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -48,7 +48,7 @@
                 </div>
             {% endif %}
             <div class="menu-item">
-                <a class="menu-link" href="{{ path('buy_package') }}">
+                <a class="menu-link" id="buy_package" href="{{ path('buy_package') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -56,7 +56,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a class="menu-link" href="{{ path('bought_package') }}">
+                <a class="menu-link" id="bought_package" href="{{ path('bought_package') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -67,7 +67,7 @@
     </div>
 
 
-    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <div data-kt-menu-trigger="click" id="Applications_scrole" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotone/Shopping/Box2.svg-->
@@ -91,7 +91,7 @@
 									</span>
         <div class="menu-sub menu-sub-accordion menu-active-bg">
             <div class="menu-item">
-                <a class="menu-link" href="{{ path('list_app') }}">
+                <a class="menu-link" id="list_Applications" href="{{ path('list_app') }}">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -99,7 +99,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a class="menu-link" href="{{ path('add_app') }}">
+                <a class="menu-link"  id="add_application"  href="{{ path('add_app') }}">
 												<span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
 												</span>

@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'applications', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userPackages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'number_log_now'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'applications', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userPackages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'number_log_now', '' . "\0" . 'App\\Entity\\User' . "\0" . 'validation'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'applications', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userPackages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'number_log_now'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'applications', '' . "\0" . 'App\\Entity\\User' . "\0" . 'userPackages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'number_log_now', '' . "\0" . 'App\\Entity\\User' . "\0" . 'validation'];
     }
 
     /**
@@ -398,6 +398,28 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumberLogNow', [$number_log_now]);
 
         return parent::setNumberLogNow($number_log_now);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getValidation(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getValidation', []);
+
+        return parent::getValidation();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setValidation(string $validation): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setValidation', [$validation]);
+
+        return parent::setValidation($validation);
     }
 
 }

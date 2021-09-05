@@ -502,8 +502,12 @@ class __TwigTemplate_fc1d320a5ca8fb5aca945a7663df905f295263aede7f3cf02e57bc54419
         });
     }
 </script>
+<script>
+        document.getElementById('list_Applications').className = 'menu-link active';
+        document.getElementById('Applications_scrole').className = \"menu-item menu-accordion hover show\";
+</script>
     ";
-        // line 352
+        // line 356
         $this->displayParentBlock("javascript", $context, $blocks);
         echo "
 ";
@@ -527,7 +531,7 @@ class __TwigTemplate_fc1d320a5ca8fb5aca945a7663df905f295263aede7f3cf02e57bc54419
 
     public function getDebugInfo()
     {
-        return array (  507 => 352,  498 => 346,  491 => 341,  481 => 340,  398 => 266,  385 => 259,  377 => 254,  352 => 232,  345 => 227,  341 => 225,  337 => 223,  335 => 222,  329 => 219,  291 => 184,  286 => 181,  282 => 179,  278 => 177,  276 => 176,  269 => 172,  265 => 171,  261 => 169,  257 => 168,  187 => 101,  91 => 7,  81 => 6,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  511 => 356,  498 => 346,  491 => 341,  481 => 340,  398 => 266,  385 => 259,  377 => 254,  352 => 232,  345 => 227,  341 => 225,  337 => 223,  335 => 222,  329 => 219,  291 => 184,  286 => 181,  282 => 179,  278 => 177,  276 => 176,  269 => 172,  265 => 171,  261 => 169,  257 => 168,  187 => 101,  91 => 7,  81 => 6,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -882,6 +886,10 @@ class __TwigTemplate_fc1d320a5ca8fb5aca945a7663df905f295263aede7f3cf02e57bc54419
                     \$('#body_list').append(data);
         });
     }
+</script>
+<script>
+        document.getElementById('list_Applications').className = 'menu-link active';
+        document.getElementById('Applications_scrole').className = \"menu-item menu-accordion hover show\";
 </script>
     {{ parent() }}
 {% endblock %}", "/User/Logger_html/Applications/list_app.html.twig", "C:\\Users\\ali\\Desktop\\project\\templates\\User\\Logger_html\\Applications\\list_app.html.twig");

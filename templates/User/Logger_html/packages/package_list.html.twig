@@ -234,6 +234,11 @@
                     $('#body_list').append(data);
         });
     }
-    </script>
-    {{ parent() }}
+</script>
+{{ parent() }}
+
+<script>
+    document.getElementById('list_package').className = 'menu-link active';
+    document.getElementById('package_scrole').className = "menu-item menu-accordion hover show";
+</script>
 {% endblock %}
