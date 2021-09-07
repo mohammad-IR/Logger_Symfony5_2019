@@ -36,19 +36,6 @@ buy_package:
   controller: App\Controller\Users\UsersController::buy_package
 
 
-list_category:
-  path: /dashbord/list_category
-  controller: App\Controller\Admin\CategoryController::list_category
-edit_category:
-  path: /dashbord/edit_category
-  controller: App\Controller\Admin\CategoryController::edit_category
-delete_category:
-  path: /dashbord/delete_category
-  controller: App\Controller\Admin\CategoryController::delete_category
-sendEmail:
-  path: /sendEmail
-  controller: App\Controller\Admin\AdminController::sendEmail
-
 
 
 add_app:
@@ -107,4 +94,9 @@ getLogs:
   path: /dashbord/getLogs
   controller: App\Controller\Users\LoggerController::getLogs
 
-
+list_article:
+  path: /dashbord/list_article
+  controller: App\Controller\ArticlesController::list_article
+add_article:
+  path: /dashbord/add_article
+  controller: App\Controller\ArticlesController::add_article
