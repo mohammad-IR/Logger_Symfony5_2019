@@ -1,0 +1,75 @@
+{% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+    تغییر مقاله
+{% endblock %}
+{% block main %}
+    <div class="container mt-10 justify-content-center bg-light  border border-dark">
+        {{ form_start(form, {'attr': {'action':path('edit_article')}}) }}
+        <div class="row p-10"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="form-group">
+                    {# <input type="text" class="form-control" id="title" placeholder="موضوع را وارد کنید"> #}
+                    {{ form_row(form.title) }}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="form-group mt-11" style="direction: rtl">
+                    {{ form_row(form.body) }}
+
+                    <script>
+                        tinymce.init({
+                            selector: 'textarea',
+                            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+                            toolbar_mode: 'floating',
+                            tinycomments_mode: 'embedded',
+                            tinycomments_author: 'Author name',
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-start mt-20 mb-9">
+            <div class="offset-1 col-md-3">
+                <label for="validationCustom04" class="form-label required">دسته بندی</label>
+                <select class="form-select" id="validationCustom04" name="category_article"  required>
+                    <option selected disabled value="">انتخاب کن</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% for category_article in app.flashes('category_article') %}
+                <span class="text-danger">{{ category_article }}</span>
+            {% endfor %}
+        </div>
+        <input type="hidden" value="{{ id }}" name="id">
+        <div class="row justify-content-start  mt-4">
+            <div class="offset-1 col-4">
+                <div class="form-check">
+                    <input type="checkbox" name="publish" class="form-check-input" id="publish_checkBox">
+                    <label class="form-check-label" for="publish_checkBox">publish</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-success" name="submit">ارسال</button>
+                    <a class="btn btn-outline-danger" href="{{ path('list_article') }}">انصراف</a>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script>
+        document.getElementById('list_artticle').className = 'menu-link active';
+        document.getElementById('article_scrole').className = "menu-item menu-accordion hover show";
+</script>
+{% endblock %}

@@ -1,4 +1,7 @@
 {% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+    لیست مقاله ها
+{% endblock %}
 {% block main %}
     <div class="container">
         <div class="row">
@@ -8,28 +11,6 @@
                     <div class="card-header bیاder-0 pt-6">
                         <!--begin::Card toolbar-->
                         <div class="card-toolbar">
-                            <!--begin::Toolbar-->
-                            <div class="d-flex justify-content-end" data-kt-مشتری-table-toolbar="base">
-                                <!--begin::افزودن مشتری-->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_add_مشتری">
-                                    <!--begin::Svg Icon | path: icons/duotone/Navigation/Plus.svg-->
-                                    <span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg"
-                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                         height="24px" viewBox="0 0 24 24" version="1.1">
-														<rect fill="#000000" x="4" y="11" width="16" height="2"
-                                                              rx="1"></rect>
-														<rect fill="#000000" opacity="0.5"
-                                                              transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)"
-                                                              x="4" y="11" width="16" height="2" rx="1"></rect>
-													</svg>
-												</span>
-                                    <!--end::Svg Icon-->افزودن مشتری
-                                </button>
-                                <!--end::افزودن مشتری-->
-                            </div>
-                            <!--end::Toolbar-->
                             <!--begin::Group actions-->
                             <div class="d-flex justify-content-end align-items-center d-none"
                                  data-kt-مشتری-table-toolbar="selected">
@@ -94,7 +75,7 @@
                                     <tr class="even">
                                         <!--begin::نام=-->
                                         <td>
-                                            <a href="apps/customers/view.html"
+                                            <a href="{{ path('edit_article', { id : article.id}) }}"
                                                class="text-gray-800 text-hover-primary mb-1">{{ article.title }}</a>
                                         </td>
                                         <!--end::نام=-->
@@ -141,12 +122,18 @@
                                                  data-kt-menu="true">
                                                 <!--begin::Menu مورد-->
                                                 <div class="menu-item px-3">
-                                                    <a href="apps/customers/view.html" class="menu-link px-3">نمایش</a>
+                                                    <a href="{{ path('change_status_article', {id : article.id}) }}" class="menu-link px-3">
+                                                        {% if article.publish == true%}
+                                                            غیر فعال
+                                                        {% else %}
+                                                            فعال
+                                                        {% endif %}
+                                                    </a>
                                                 </div>
                                                 <!--end::Menu مورد-->
                                                 <!--begin::Menu مورد-->
                                                 <div class="menu-item px-3">
-                                                    <a href="#" class="menu-link px-3"
+                                                    <a href="{{ path('delete_article',{id : article.id}) }}" class="menu-link px-3"
                                                        data-kt-مشتری-table-filter="delete_row">حذف</a>
                                                 </div>
                                                 <!--end::Menu مورد-->

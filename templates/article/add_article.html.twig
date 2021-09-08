@@ -1,4 +1,7 @@
 {% extends 'User/doshbord_user.html.twig' %}
+{% block title %}
+    اضافه کردن مقاله
+{% endblock %}
 {% block main %}
     <div class="container mt-10 justify-content-center bg-light  border border-dark">
         {{ form_start(form, {'attr': {'action':path('add_article')}}) }}

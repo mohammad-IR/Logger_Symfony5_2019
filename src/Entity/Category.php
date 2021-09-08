@@ -28,11 +28,12 @@ class Category
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="categories")
+     * @ORM\JoinColumn (onDelete="CASCADE")
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="parent", cascade={"persist", "remove"})
      */
     private $categories;
 

@@ -4,7 +4,7 @@
     
 <head>
         <meta charset="utf-8" />
-        <title>قالب صفحه فرود Saas و نرم افزار</title>
+        <title>صفحه اصلی</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
         <meta name="keywords" content="bootstrap 4, premium, marketing, multipurpose" />
@@ -52,57 +52,56 @@
                         <!-- End mobile menu toggle-->
                     </div>
                 </div>
-
                 <div id="navigation">
                     <!-- Navigation Menu-->
                     <ul class="navigation-menu">
-                        {% for key,item in categories %}
-
-                                {% if item is iterable %}
-                                    {% for keys,values in item %}
-                                        {% if ( ((categories[values] is defined) and categories[values] != values)) %}
-                                            <li class="has-submenu">
-                                            <a href="javascript:void(0)">{{ key }}</a><span class="menu-arrow"></span>
-                                                <ul class="submenu">
-                                                    {% for keys, value in item  %}
-                                                        <li class="has-submenu">
-                                                            <a href="javascript:void(0)">{{ value }}
-                                                            </a><span class="submenu-arrow"></span>
-                                                            <ul class="submenu">
-                                                            {% for key,value in categories[values] %}
-                                                                    <li><a href="path({{ value }})">{{ value }}</a></li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% if( ((categories[values] is defined) and categories[values] == values)) %}
-                                                <ul class="submenu">
-                                                    {% for keys, value in categories  %}
-                                                    <li><a href="path({{ value }})">{{ value }}</a></li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endif %}
-                                        {% endif %}
-                                    {% endfor %}
-
-                                {% else %}
-                                    <li class="has-submenu active">
-                                         <a href="javascript:void(0)">{{ item }}</a><span class="menu-arrow"></span>
-                                    </li>
+                        <li><a href="index.html">صفحه اصلی</a></li>
+                        <li class="has-submenu active">
+                            <a href="javascript:void(0)">لندینگ</a><span class="menu-arrow"></span>
+                            <ul class="submenu megamenu">
+                                <li>
+                                    <ul>
+                                        <li><a href="index-saas.html">ساس</a></li>
+                                        <li><a href="index-agency.html">آژانسی</a></li>
+                                        <li><a href="index-apps.html">اپلیکیشن</a></li>
+                                        <li><a href="index-studio.html">استودیو</a></li>
+                                        <li><a href="index-business.html">شرکتی</a></li>
+                                        <li><a href="index-modern-business.html">شرکتی مدرن</a></li>
+                                        <li><a href="index-hotel.html">هتل</a></li>
+                                        <li><a href="index-marketing.html">مارکتینگ</a></li>
+                                        <li><a href="index-enterprise.html">پروژه</a></li>
+                                        <li><a href="index-coworking.html">همکار</a></li>
+                                        <li><a href="index-cloud-hosting.html">فروش هاست</a></li>
+                                        <li><a href="index-event.html">رویداد</a></li>
+                                    </ul>
                                 </li>
-                                {% endif %}
-                        {% endfor %}
+                                <li class="active">
+                                    <ul>
+                                        <li class="active"><a href="index-course.html">حرفه ای </a></li>
+                                        <li><a href="index-personal.html">شخصی </a></li>
+                                        <li><a href="index-single-product.html">محصول </a></li>
+                                        <li><a href="index-portfolio.html">نمونه کار </a></li>
+                                        <li><a href="index-services.html">خدمات </a></li>
+                                        <li><a href="index-payments.html">پرداخت ها </a></li>
+                                        <li><a href="index-crypto.html">ارز دیجیتالی </a></li>
+                                        <li><a href="index-software.html">نرم افزار </a></li>
+                                        <li><a href="index-job.html">کاریابی <span class="badge badge-danger rounded"> ورژن 1.6 </span> </a></li>
+                                        <li><a href="index-customer.html">مشتری <span class="badge badge-danger rounded"> ورژن 1.6 </span> </a></li>
+                                        <li><a href="index-onepage.html">ساس <span class="badge badge-warning rounded ml-2">تک صفحه</span></a></li>
+                                        <li><a href="index-rtl.html">ورژن راست چین <span class="badge badge-primary rounded ml-2">راست چین</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul><!--end navigation menu-->
                     <div class="buy-menu-btn d-none">
                         <a href="https://www.rtl-theme.com/author/TN_Plugin/?aff=TN_Plugin" target="_blank" class="btn btn-primary">هم اکنون بخرید</a>
                     </div><!--end login button-->
-
-                </div><!--end navigation-->
+                </div>
             </div><!--end container-->
         </header><!--end header-->
         <!-- Navbar End -->
-        
+
         <!-- Hero Start -->
         <section class="bg-half-170 border-bottom" id="home">
             <div class="home-center">
@@ -451,7 +450,7 @@
                             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="توییتر"></i></a></li>
                         </ul><!--end icon-->
                     </div><!--end col-->
-                    
+
                     <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h4 class="text-light footer-head">شرکت</h4>
                         <ul class="list-unstyled footer-list mt-4">
@@ -465,7 +464,7 @@
                             <li><a href="page-cover-login.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ورود</a></li>
                         </ul>
                     </div><!--end col-->
-                    
+
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h4 class="text-light footer-head">لینک های کمکی</h4>
                         <ul class="list-unstyled footer-list mt-4">

@@ -100,3 +100,27 @@ list_article:
 add_article:
   path: /dashbord/add_article
   controller: App\Controller\ArticlesController::add_article
+delete_article:
+  path: /dashbord/delete_article
+  controller: App\Controller\ArticlesController::delete_article
+change_status_article:
+  path: /dashbord/change_status_article
+  controller: App\Controller\ArticlesController::change_status_article
+edit_article:
+  path: /dashbord/edit_article
+  controller: App\Controller\ArticlesController::edit_article
+
+
+add_category:
+  path: /dashbord/add_category
+  controller: App\Controller\CategoryController::add_category
+edit_category:
+  path: /dashbord/edit_category
+  controller: App\Controller\CategoryController::edit_category
+list_category:
+  path: /dashbord/list_category
+  controller: App\Controller\CategoryController::list_category
+
+delete_category:
+  path: /dashbord/delete_category
+  controller: App\Controller\CategoryController::delete_category

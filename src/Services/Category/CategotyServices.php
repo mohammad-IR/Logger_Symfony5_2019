@@ -22,23 +22,12 @@ class CategotyServices extends AbstractController
     }
 
     public function category(){
-        $categories  = $this->entityManager -> getRepository(Category::class) -> findAll();
-        $parent = array();
-        foreach ($categories as $category){
-                if ($category->getParent() != null) {
-                    try {
-                        array_push($parent[$category->getParent() ->getName()], $category->getName());
-                    }
-                    catch (\Exception $exception){
-                        $parent[$category->getParent() ->getName()] = [];
-                        array_push($parent[$category->getParent() ->getName()] , $category->getName());
-                    }
-                }
-                else {
-                    if ($category->getParent() == null)
-                    $parent[$category->getName()] = $category->getName();
-                }
-            }
-        return $parent;
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        foreach ($categories  as $category) {
+            foreach ($category)
+        }
+    }
+    private function searchig_parent(Category $category) {
+
     }
 }
