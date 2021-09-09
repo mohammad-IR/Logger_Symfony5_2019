@@ -27,6 +27,14 @@ index:
 request_for_log:
   path: /logger
   controller: App\Controller\IndexController::logger
+category_of_article:
+  path: /category_of_article/{name?}
+  controller: App\Controller\IndexController::category_of_article
+article_deatile:
+  path: /article_deatile
+  controller: App\Controller\IndexController::article_deatile
+
+
 
 dashbord:
   path: /dashbord

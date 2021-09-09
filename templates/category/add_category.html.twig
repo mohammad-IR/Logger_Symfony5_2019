@@ -9,6 +9,9 @@
                 <div class="col-md-12">
                     <label for="validationCustom01" class="form-label">نام</label>
                     <input type="text" class="form-control" id="validationCustom01" name="name" required>
+                    {% for item in app.flashes('name') %}
+                        <span class="text-danger"></span>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row mt-5 justify-content-center">
@@ -21,6 +24,9 @@
                             <option value="{{ category.id }}">{{ category.name }}</option>
                         {% endfor %}
                     </select>
+                    {% for item in app.flashes('parent') %}
+                        <span class="text-danger"></span>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row mt-5 justify-content-center">

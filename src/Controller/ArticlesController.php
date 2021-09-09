@@ -7,12 +7,16 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Form\ArticleType;
+use Doctrine\Migrations\Exception\NoTablesFound;
 use http\Exception\InvalidArgumentException;
+use PHPUnit\TextUI\XmlConfiguration\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * Class ArticlesController
@@ -21,11 +25,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ArticlesController extends AbstractController
 {
     public function list_article(Request $request) {
-        return $this->render('article/list_article.html.twig',['list_article'=> $this->getDoctrine()->getRepository(Article::class) ->findAll()]);
+        return $this->render('article/list_article.html.twig',['list_article'=> $this->getDoctrine()->getRepository(Article::class) ->findBy(['status'=>true])]);
     }
 
 
-    public function add_article(Request $request) {
+    public function add_article(Request $request, SluggerInterface $slugger) {
         $article = new Article();
         $categories = $this -> getDoctrine() -> getRepository(Category::class)->findAll();
         $form = $this->createForm(ArticleType::class, $article);
@@ -34,6 +38,24 @@ class ArticlesController extends AbstractController
             if ( $request->get('category_article') == null  ) {
                 $this->addFlash('category_article', 'باید دسته بندی رو انتخاب کنید');
                 return $this->render('article/add_article.html.twig', ['form' => $form->createView(),'categories' => $categories]);
+            }
+            try {
+                $image = $request->files->get('article')['image'];
+            }
+            catch (\Exception $exception){
+                throw  new NoTablesFound();
+            }
+            if ($image) {
+                $upload_file = $this->getParameter('uploads_image_article');
+                $file_name = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $upload_file,
+                    $file_name
+                );
+                $article->setImage($file_name);
+            }
+            else {
+                throw new NotFoundHttpException();
             }
             $category = $this->getDoctrine()->getRepository(Category::class)->find((int)$request->get('category_article'));
             if ($category == null) {
@@ -51,6 +73,7 @@ class ArticlesController extends AbstractController
                 $form->get('title')->addError(new FormError('لطفا title رو وارد کنید'));
                 return $this->render('article/add_article.html.twig', ['form' => $form->createView(),'categories' => $categories]);
             }
+            $article->setStatus(true);
             $article->setAuther($this->getUser());
             $article->setDate(new \DateTime('UTC'));
             $this->getDoctrine()->getManager()->persist($article);
@@ -68,7 +91,8 @@ class ArticlesController extends AbstractController
         if ($article == null) {
             throw new NotFoundHttpException();
         }
-        $this->getDoctrine()->getManager()->remove($article);
+        $article->setStatus(false);
+        $this->getDoctrine()->getManager()->persist($article);
         $this->getDoctrine()->getManager()->flush();
         return $this->redirectToRoute('list_article');
     }
@@ -103,6 +127,22 @@ class ArticlesController extends AbstractController
             if ($request->get('publish') != null) {
                 $article->setPublish(true);
             }
+            try {
+                $image = $request->files->get('article')['image'];
+            }
+            catch (\Exception $exception){
+                throw  new NoTablesFound();
+            }
+            if ($image) {
+                $upload_file = $this->getParameter('uploads_image_article');
+                $file_name = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $upload_file,
+                    $file_name
+                );
+                $article->setImage($file_name);
+            }
+
             if ($request->get('category_article') == null) {
                 throw new InvalidArgumentException('شما دسته بندی مورد نظر باید بگوید');
             }
@@ -115,7 +155,12 @@ class ArticlesController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return  $this->redirectToRoute('list_article');
         }
-        return $this->render('article/edit_article.html.twig', ['form'=>$form->createView(), 'categories'=>$categories, 'id'=> $article->getId()]);
+        $img = new File($form->get('image')->getData());
+        return $this->render('article/edit_article.html.twig', [
+            'form'=>$form->createView(),
+            'categories'=>$categories,
+            'id'=> $article->getId(),
+            'image' =>$img
+            ]);
     }
-
 }

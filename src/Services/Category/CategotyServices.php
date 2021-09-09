@@ -22,12 +22,30 @@ class CategotyServices extends AbstractController
     }
 
     public function category(){
-        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findBy(['status'=>true]);
+        $parent = array();
         foreach ($categories  as $category) {
-            foreach ($category)
+            if ($category->getParent() == null) {
+                if ($category->getCategories() != null) {
+                    array_push($parent, [$category->getName() =>$this->searchig_parent($category)]);
+                }
+                else {
+                    array_push($parent, [$category->getName() =>$category]);
+                }
+            }
         }
+        return $parent;
     }
     private function searchig_parent(Category $category) {
-
+        $parent = array();
+        foreach ($category->getCategories() as $item) {
+            if ($item->getCategories() != null) {
+                array_push($parent, $this->searchig_parent($item));
+            }
+            else {
+                array_push($parent, $item);
+            }
+        }
+        return $parent;
     }
 }
