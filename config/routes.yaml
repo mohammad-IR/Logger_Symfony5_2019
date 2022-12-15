@@ -30,9 +30,9 @@ request_for_log:
 category_of_article:
   path: /category_of_article/{name?}
   controller: App\Controller\IndexController::category_of_article
-article_deatile:
-  path: /article_deatile
-  controller: App\Controller\IndexController::article_deatile
+page_article:
+  path: /page_article/{title}
+  controller: App\Controller\IndexController::page_article
 
 
 
@@ -101,6 +101,9 @@ detail_log:
 getLogs:
   path: /dashbord/getLogs
   controller: App\Controller\Users\LoggerController::getLogs
+getXcelFile:
+  path: /dashbord/getXcelFile
+  controller: App\Controller\Users\LoggerController::getXcelFile
 
 list_article:
   path: /dashbord/list_article

@@ -3,10 +3,13 @@
 namespace App\Controller\Users;
 
 use App\Entity\Application;
+use App\Entity\Log;
 use App\Entity\Package;
 use App\Entity\UserPackage;
 use App\Form\AddPackageType;
 use App\Form\PackagesType;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use ContainerJNVfWKW\getPackagesControllerService;
 use phpDocumentor\Reflection\Types\This;
 use PHPUnit\Exception;
@@ -14,9 +17,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use function Composer\Autoload\includeFile;
+
 
 
 /**
@@ -153,4 +158,6 @@ class PackagesController extends AbstractController
                 ]);
         return new JsonResponse($value->getContent());
     }
+
+
 }

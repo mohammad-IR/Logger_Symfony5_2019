@@ -279,6 +279,15 @@
                 <button class="btn-outline-dark btn-primary rounded-3  p-3 g-5" id="more_log">بیشتر</button>
             </div>
         </div>
+        <div class="row gy-4 mt-5 justify-content-center">
+            <div class="col-md-5" id="link_xcel">
+                <div class="input-group">
+                <label for="xcel_log">تعداد لاگ های آخر که به صورت اکسل بهتان داده میشود را وارد کتید.</label>
+                <input type="number" class="input-control" id="xcel_log">
+                <button class="btn-outline-success" onclick="getNumberLog()">ارسال</button>
+                </div>
+            </div>
+        </div>
         <div class="row me-2 ms-4 mt-5 justify-content-center">
             <div class="col-md-auto g-3 card text-center" style="width: 18rem;">
 
@@ -347,5 +356,16 @@
                 });
             });
         });
+    </script>
+    <script>
+        function  getNumberLog(){
+            console.log(document.getElementById('xcel_log').value)
+            $.post('{{ path('getXcelFile') }}',  {number: document.getElementById('xcel_log').value}, function (value) {
+                var e = '<a class="link-info btn-primery" href= "'+ '{{ path('index') }}' +  value + '"' + '>دانلود</a>'
+                document.getElementById('link_xcel').innerHTML = null;
+                document.getElementById('link_xcel').innerHTML = e;
+
+            });
+        }
     </script>
 {% endblock %}

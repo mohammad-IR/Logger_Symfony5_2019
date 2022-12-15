@@ -18,7 +18,7 @@
     <div class="container-fluid bg-light  mt-20 mb-20 " style="background-image: url('/uploads/hand-painted-watercolor-background-with-sky-clouds-shape.jpg')">
         <div class="row justify-content-start ">
             {% for article in articles %}
-                <div class="col-md-4 text-center mb-5 mt-5"><a href="" class="">
+                <div class="col-md-4 text-center mb-5 mt-5"><a href="{{ path('page_article', {title : article.title}) }}" class="">
                         <div class="card bg-light text-center p-4 pb-0 mt-5 rounded" style="width: 18rem;">
                             <img
                                     src="{{ asset('uploads/image_article') }}/{{ article.image }}"

@@ -44,8 +44,22 @@ class IndexController extends AbstractController
                 , 'name'=>$name]);
     }
 
-    public function article_deatile() {
-
+    public function page_article($title)
+    {
+        if ($title){
+            $article = $this->getDoctrine()->getRepository(Article::class)->findOneBy(['title' => $title, 'status'=>true, 'publish'=>true]);
+            if ($article == null) {
+                throw new NotFoundHttpException();
+            }
+        }
+        else {
+            throw new NotFoundHttpException();
+        }
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findBy(['status'=>true, 'parent'=>null]);
+        return $this->render('fornt_page/category_of_article/page_article.html.twig',
+        [
+            'categories'=>$categories, 'article'=>$article
+        ]);
     }
 
 }

@@ -261,20 +261,13 @@
                                         </div>
                                     </div>
                                 </div>
-
                             {% endfor %}
                             </tbody>
-                            <!--end::Table body-->
                         </table>
                     </div>
                 </div>
-                <!--end::Table-->
             </div>
-            <!--end::Card body-->
         </div>
-        <!--end::Card-->
-        <!--begin::مدال-->
-        <!--begin::Modal - تنظیم تعادل-->
         <div class="modal fade" id="kt_subscriptions_اکسپورت_modal" tabindex="-1" aria-hidden="true">
             <!--begin::Modal dialog-->
             <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -315,27 +308,6 @@
         <!--end::Modal - کارت جدید-->
         <!--end::مدال-->
     </div>
-    <!-- Modal delete -->
-    <div class="modal fade" id="delete_app" tabindex="-1" role="dialog" aria-labelledby="#delete_app"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
 {% block javascript %}
 <script type="text/javascript">
@@ -344,7 +316,7 @@
     value = "all";
 }
     $.post('{{ path('searching_app') }}',{word : value}, function (data){
-                    document.getElementById('body_list').innerText = '';
+                    document.getElementById('body_list').innerHTML = '';
                     $('#body_list').append(data);
         });
     }

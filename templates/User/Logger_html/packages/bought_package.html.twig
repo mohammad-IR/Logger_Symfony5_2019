@@ -95,7 +95,7 @@
                 }
             $.post('{{ path('searching_bought_package') }}',{word : value}, function (data){
                             console.log(data)
-                            document.getElementById('body_list').innerText = '';
+                            document.getElementById('body_list').innerHTML = '';
                             $('#body_list').append(data);
                 });
             }

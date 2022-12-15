@@ -1,6 +1,6 @@
 {% extends 'User/doshbord_user.html.twig' %}
 {% block title %}
- لیست پکیج ها
+    لیست پکیج ها
 {% endblock %}
 
 {% block main %}
@@ -33,7 +33,8 @@
 												</span>
                             <!--end::Svg Icon-->
                             <input type="text" data-kt-subscription-table-filter="search"
-                                   class="form-control form-control-solid w-250px ps-14" onkeyup="searching(this.value)" id="searching_list" placeholder="جستجو اشتراک ها">
+                                   class="form-control form-control-solid w-250px ps-14" onkeyup="searching(this.value)"
+                                   id="searching_list" placeholder="جستجو اشتراک ها">
                         </div>
                         <!--end::جستجو-->
                     </div>
@@ -96,7 +97,6 @@
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody id="body_list" class="text-gray-600 fw-bold">
-
                                 {% for item in list_packages %}
                                     <tr class="odd">
                                         <td>
@@ -135,7 +135,7 @@
                                                     <a href="{{ path('delete_packages', {'id': item.id}) }}"
                                                        data-kt-subscriptions-table-filter="delete_row"
                                                        class="menu-link px-3">
-                                                            حذف
+                                                        حذف
                                                     </a>
                                                 </div>
                                             </div>
@@ -224,14 +224,13 @@
 {% block javascript %}
 <script type="text/javascript">
     function searching(value){
-        if (value == ""){
-        value = "all";
-        }
-        console.log(value)
-        $.post('{{ path('searching_package') }}',{word : value}, function (data){
-                    console.log(data)
-                    document.getElementById('body_list').innerText = '';
-                    $('#body_list').append(data);
+    if (value == ""){
+    value = "all";
+}
+    console.log(value)
+    $.post('{{ path('searching_package') }}',{word : value}, function (data){
+                    document.getElementById('body_list').innerHTML = null;
+                    document.getElementById('body_list').innerHTML = data;
         });
     }
 </script>
